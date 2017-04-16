@@ -1,6 +1,9 @@
 ﻿using System;
 using System.IO;
 using System.Windows.Forms;
+using System.Speech.Synthesis;
+using System.Speech;
+using System.Speech.Recognition;
 
 namespace IgenFinalVersion
 {
@@ -75,8 +78,116 @@ namespace IgenFinalVersion
             double perUsed = ((double)(tSize - fSize) / (double)tSize) * 100;
             return perUsed;
         }
+
+        /* -------------------------------- Voice Recognition --------------------------------  */
+
+
+        //Initialization Of Variables Required For Speech
+        SpeechSynthesizer ss = new SpeechSynthesizer();
+        PromptBuilder pb = new PromptBuilder();
+        SpeechRecognitionEngine sre = new SpeechRecognitionEngine();
+        Choices cList = new Choices();
+        String[] options;
+
+        //Added start button
+        Boolean isEnabled = false;
+        private void StartButton_Click(object sender, EventArgs e)
+        {
+            if (!isEnabled)     //If start button is not already enabled start voice recognition
+            {
+                isEnabled = true;
+                StartButton.Text = "Stop";
+                ListenerLabel.Visible = true;
+                startRecognition();
+            }
+            else if (isEnabled)      //If start button is enabled stop voice recognition
+            {
+                sre.RecognizeAsyncStop();
+                StartButton.Text = "Start";
+                ListenerLabel.Visible = false;
+                isEnabled = false;
+            }
+            else
+            { }        
+        }
+
+
         
 
+        private void startRecognition()
+        {
+            options = new String[] {"activate google engine","hi","hello","introduce yourself" };
+            cList.Add(options);
+            Grammar gr = new Grammar(new GrammarBuilder(cList));
+
+            try
+            {
+                sre.RequestRecognizerUpdate();
+                sre.LoadGrammar(gr);
+                sre.SpeechRecognized += sre_SpeechRecognized;
+                sre.SetInputToDefaultAudioDevice();
+                sre.RecognizeAsync(RecognizeMode.Multiple);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error");
+            }
+            ss.SelectVoiceByHints(VoiceGender.Neutral);
+            
+    
+        }
+
+                        
+        private void sre_SpeechRecognized(object sender, SpeechRecognizedEventArgs e)
+        {
+            switch (e.Result.Text.ToString())
+            {
+                case "activate google engine":
+                    {
+                        ss.SpeakAsync("Google Engine Online");
+                        GoogleEngine ge = new GoogleEngine();
+                        ge.Activated += new EventHandler(GoogleFormActivated);                 
+                        ge.ShowDialog();
+                        
+                        break;
+                    }
+                case "hi":
+                case "hello":
+                    {
+                        Random random = new Random();
+                        int rand = random.Next(0, 3);
+                        if (rand == 0)
+                        {
+                            ss.SpeakAsync("Hey there, How can i help you today?");
+                        }                 
+
+                        else if (rand == 1)
+                            ss.SpeakAsync("Hey. Wonderful day isnt it ");
+                        else
+                            ss.SpeakAsync("Yes, what can i do for you?");
+                        
+                        break;
+                    }
+
+                case "introduce yourself":
+                    {
+                        ss.SpeakAsync("My name is Igen. I am designed to ease up your daily tasks.");
+                        break;
+                    }
+            }
+
+            ConvoBox.Items.Add(e.Result.Text.ToString());
+            
+        }   
+        
+        private void GoogleFormActivated(object sender,EventArgs e)
+        {
+            sre.RecognizeAsyncStop();
+            StartButton.Text = "Start";
+            ListenerLabel.Visible = false;
+            isEnabled = false;
+
+        }
         private void t_tick(object sender, EventArgs e)
         {
             DateTime time = DateTime.Now;

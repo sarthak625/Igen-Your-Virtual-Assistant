@@ -37,7 +37,9 @@
             this.CLabel = new MetroFramework.Controls.MetroLabel();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.ConvoBox = new System.Windows.Forms.ListBox();
+            this.StartButton = new MetroFramework.Controls.MetroButton();
+            this.ListenerLabel = new MetroFramework.Controls.MetroLabel();
             this.SuspendLayout();
             // 
             // TimeBlock
@@ -153,21 +155,45 @@
             this.metroLabel3.TabIndex = 8;
             this.metroLabel3.Text = "used in F drive";
             // 
-            // listBox1
+            // ConvoBox
             // 
-            this.listBox1.BackColor = System.Drawing.SystemColors.Info;
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(355, 280);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(398, 173);
-            this.listBox1.TabIndex = 9;
+            this.ConvoBox.BackColor = System.Drawing.SystemColors.Info;
+            this.ConvoBox.FormattingEnabled = true;
+            this.ConvoBox.Location = new System.Drawing.Point(355, 280);
+            this.ConvoBox.Name = "ConvoBox";
+            this.ConvoBox.Size = new System.Drawing.Size(398, 173);
+            this.ConvoBox.TabIndex = 9;
+            // 
+            // StartButton
+            // 
+            this.StartButton.Highlight = true;
+            this.StartButton.Location = new System.Drawing.Point(207, 306);
+            this.StartButton.Name = "StartButton";
+            this.StartButton.Size = new System.Drawing.Size(100, 82);
+            this.StartButton.TabIndex = 11;
+            this.StartButton.Text = "Start";
+            this.StartButton.Click += new System.EventHandler(this.StartButton_Click);
+            // 
+            // ListenerLabel
+            // 
+            this.ListenerLabel.AutoSize = true;
+            this.ListenerLabel.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.ListenerLabel.ForeColor = System.Drawing.Color.LimeGreen;
+            this.ListenerLabel.Location = new System.Drawing.Point(345, 18);
+            this.ListenerLabel.Name = "ListenerLabel";
+            this.ListenerLabel.Size = new System.Drawing.Size(73, 19);
+            this.ListenerLabel.TabIndex = 12;
+            this.ListenerLabel.Text = "Listening...";
+            this.ListenerLabel.Visible = false;
             // 
             // Igen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(822, 537);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.ListenerLabel);
+            this.Controls.Add(this.StartButton);
+            this.Controls.Add(this.ConvoBox);
             this.Controls.Add(this.metroLabel3);
             this.Controls.Add(this.metroLabel2);
             this.Controls.Add(this.CLabel);
@@ -196,7 +222,9 @@
         private MetroFramework.Controls.MetroLabel CLabel;
         private MetroFramework.Controls.MetroLabel metroLabel2;
         private MetroFramework.Controls.MetroLabel metroLabel3;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox ConvoBox;
+        private MetroFramework.Controls.MetroButton StartButton;
+        private MetroFramework.Controls.MetroLabel ListenerLabel;
     }
 }
 
