@@ -1,0 +1,12 @@
+c:\users\prank\documents\visual studio 2015\Projects\IgenFinalVersion\IgenFinalVersion\bin\Debug\IgenFinalVersion.exe.config
+C:\Users\PrAnk\documents\visual studio 2015\Projects\IgenFinalVersion\IgenFinalVersion\bin\Debug\IgenFinalVersion.exe
+C:\Users\PrAnk\documents\visual studio 2015\Projects\IgenFinalVersion\IgenFinalVersion\bin\Debug\IgenFinalVersion.pdb
+C:\Users\PrAnk\documents\visual studio 2015\Projects\IgenFinalVersion\IgenFinalVersion\bin\Debug\MetroFramework.dll
+C:\Users\PrAnk\documents\visual studio 2015\Projects\IgenFinalVersion\IgenFinalVersion\bin\Debug\MetroFramework.Fonts.dll
+C:\Users\PrAnk\documents\visual studio 2015\Projects\IgenFinalVersion\IgenFinalVersion\obj\Debug\IgenFinalVersion.csprojResolveAssemblyReference.cache
+C:\Users\PrAnk\documents\visual studio 2015\Projects\IgenFinalVersion\IgenFinalVersion\obj\Debug\IgenFinalVersion.Igen.resources
+C:\Users\PrAnk\documents\visual studio 2015\Projects\IgenFinalVersion\IgenFinalVersion\obj\Debug\IgenFinalVersion.Properties.Resources.resources
+C:\Users\PrAnk\documents\visual studio 2015\Projects\IgenFinalVersion\IgenFinalVersion\obj\Debug\IgenFinalVersion.csproj.GenerateResource.Cache
+C:\Users\PrAnk\documents\visual studio 2015\Projects\IgenFinalVersion\IgenFinalVersion\obj\Debug\IgenFinalVersion.exe
+C:\Users\PrAnk\documents\visual studio 2015\Projects\IgenFinalVersion\IgenFinalVersion\obj\Debug\IgenFinalVersion.pdb
+C:\Users\PrAnk\Documents\Visual Studio 2015\Projects\IgenFinalVersion\IgenFinalVersion\bin\Debug\Bunifu_UI_v1.52.dll
