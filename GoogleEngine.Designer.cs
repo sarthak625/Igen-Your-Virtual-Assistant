@@ -84,6 +84,7 @@
             this.SearchButton.Size = new System.Drawing.Size(181, 41);
             this.SearchButton.TabIndex = 1;
             this.SearchButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.SearchButton.Click += new System.EventHandler(this.SearchButton_Click);
             // 
             // CountDownLabel
             // 
@@ -91,9 +92,9 @@
             this.CountDownLabel.FontSize = MetroFramework.MetroLabelSize.Tall;
             this.CountDownLabel.Location = new System.Drawing.Point(222, 142);
             this.CountDownLabel.Name = "CountDownLabel";
-            this.CountDownLabel.Size = new System.Drawing.Size(18, 25);
+            this.CountDownLabel.Size = new System.Drawing.Size(21, 25);
             this.CountDownLabel.TabIndex = 2;
-            this.CountDownLabel.Text = "1";
+            this.CountDownLabel.Text = "0";
             // 
             // GoogleEngine
             // 

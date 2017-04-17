@@ -4,6 +4,9 @@ using System.Windows.Forms;
 using System.Speech.Synthesis;
 using System.Speech;
 using System.Speech.Recognition;
+using System.Runtime.InteropServices;
+using System.Diagnostics;
+using System.Threading.Tasks;
 
 namespace IgenFinalVersion
 {
@@ -103,6 +106,7 @@ namespace IgenFinalVersion
             else if (isEnabled)      //If start button is enabled stop voice recognition
             {
                 sre.RecognizeAsyncStop();
+                
                 StartButton.Text = "Start";
                 ListenerLabel.Visible = false;
                 isEnabled = false;
@@ -116,7 +120,7 @@ namespace IgenFinalVersion
 
         private void startRecognition()
         {
-            options = new String[] {"activate google engine","hi","hello","introduce yourself" };
+            options = new String[] { "good morning", "good evening", "good night", "good afternoon","activate google engine","hi","hello","introduce yourself","igen lock the screen", "igen shut down the computer","activate reminder feature", "igen make the computer sleep" };
             cList.Add(options);
             Grammar gr = new Grammar(new GrammarBuilder(cList));
 
@@ -132,11 +136,13 @@ namespace IgenFinalVersion
             {
                 MessageBox.Show(ex.Message, "Error");
             }
-            ss.SelectVoiceByHints(VoiceGender.Neutral);
+            ss.SelectVoiceByHints(VoiceGender.Female);
             
     
         }
 
+        int a = 0;
+        
                         
         private void sre_SpeechRecognized(object sender, SpeechRecognizedEventArgs e)
         {
@@ -149,6 +155,59 @@ namespace IgenFinalVersion
                         ge.Activated += new EventHandler(GoogleFormActivated);                 
                         ge.ShowDialog();
                         
+                        break;
+                    }
+                case "activate reminder feature":
+                    {
+                        ss.SpeakAsync("Reminder feature activated");
+                        ReminderFeature rf = new ReminderFeature();
+                        rf.Activated += new EventHandler(ReminderFeatureActivated);
+                        rf.ShowDialog();
+                        break;
+                    }
+                case "good morning":
+                case "good evening":
+                case "good afternoon":
+                case "good night":
+                    {
+                        DateTime d = DateTime.Now;
+                        int h = d.Hour;
+
+                        if (h < 12)
+                            ss.SpeakAsync("Good Morning");
+                        else if (h < 14)
+                            ss.SpeakAsync("Good Afternoon");
+                        else if (h < 20)
+                            ss.SpeakAsync("Good Evening");
+                        else
+                            ss.SpeakAsync("Good Night");
+                        break;
+                    }
+                case "igen lock the screen":
+                    {
+                        
+                        using (AfterHowMuchTime ahmt = new AfterHowMuchTime("lock"))
+                        {                          
+                            ahmt.ShowDialog();
+                        }
+                        
+                        
+                        break;
+                    }
+                case "igen shut down the computer":
+                    {
+                        using (AfterHowMuchTime ahmt = new AfterHowMuchTime("shut"))
+                        {
+                            ahmt.ShowDialog();
+                        }
+                        break;
+                    }
+                case "igen make the computer sleep":
+                    {
+                        using (AfterHowMuchTime ahmt = new AfterHowMuchTime("sleep"))
+                        {
+                            ahmt.ShowDialog();
+                        }
                         break;
                     }
                 case "hi":
@@ -188,6 +247,15 @@ namespace IgenFinalVersion
             isEnabled = false;
 
         }
+
+        private void ReminderFeatureActivated(object sender,EventArgs e)
+        {
+            sre.RecognizeAsyncStop();
+            StartButton.Text = "Start";
+            ListenerLabel.Visible = false;
+            isEnabled = false;
+
+        }
         private void t_tick(object sender, EventArgs e)
         {
             DateTime time = DateTime.Now;
@@ -204,7 +272,15 @@ namespace IgenFinalVersion
         {
             
         }
+
+        //Windows Events
+       
+
+        [DllImport("user32")]
+        public static extern bool ExitWindowsEx(uint uFlags, uint dwReason);
+
         
+
 
     }
 }

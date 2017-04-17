@@ -12,3 +12,6 @@ C:\Users\PrAnk\documents\visual studio 2015\Projects\IgenFinalVersion\IgenFinalV
 C:\Users\PrAnk\Documents\Visual Studio 2015\Projects\IgenFinalVersion\IgenFinalVersion\bin\Debug\Bunifu_UI_v1.52.dll
 C:\Users\PrAnk\Documents\Visual Studio 2015\Projects\IgenFinalVersion\IgenFinalVersion\obj\Debug\IgenFinalVersion.GoogleEngine.resources
 C:\Users\PrAnk\Documents\Visual Studio 2015\Projects\IgenFinalVersion\IgenFinalVersion\bin\Debug\NAudio.dll
+C:\Users\PrAnk\Documents\Visual Studio 2015\Projects\IgenFinalVersion\IgenFinalVersion\obj\Debug\IgenFinalVersion.AfterHowMuchTime.resources
+C:\Users\PrAnk\documents\visual studio 2015\Projects\IgenFinalVersion\IgenFinalVersion\obj\Debug\IgenFinalVersion.ReminderFeature.resources
+C:\Users\PrAnk\documents\visual studio 2015\Projects\IgenFinalVersion\IgenFinalVersion\obj\Debug\IgenFinalVersion.ReminderToAdd.resources
