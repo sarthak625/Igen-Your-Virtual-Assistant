@@ -299,8 +299,14 @@ namespace IgenFinalVersion
             rf.ShowDialog();
         }
 
+        private void TimeBlock_Click(object sender, EventArgs e)
+        {
+            ss.SpeakAsync("The time is "+DateTime.Now.ToString("hh:mm:ss"));
+        }
+
         private void Igen_Load(object sender, EventArgs e)
         {
+
             
         }
 
@@ -310,7 +316,20 @@ namespace IgenFinalVersion
         [DllImport("user32")]
         public static extern bool ExitWindowsEx(uint uFlags, uint dwReason);
 
-        
+        #region credits
+
+
+        /*
+        Created By
+
+        Sarthak Negi
+        Prateek Negi
+        Sachin Bhardwaj
+
+        (DIT University Dehradun)
+        */
+
+        #endregion
 
 
     }

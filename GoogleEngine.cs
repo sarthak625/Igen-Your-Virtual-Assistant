@@ -121,6 +121,7 @@ namespace IgenFinalVersion
 
         private void SearchButton_Click(object sender, EventArgs e)
         {
+            string wolframKey = "T3XK9U-473W6GT8Y7";
             string credential_path = @"I:/IgenVoiceRecognition-4b16cb56bff4.json";
             System.Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", credential_path);
             var speech = SpeechClient.Create();
@@ -130,13 +131,49 @@ namespace IgenFinalVersion
                 LanguageCode = "en",
             },RecognitionAudio.FromFile("C:/Users/PrAnk/Desktop/test.flac"));
 
+            
             foreach (var result in response.Results)
             {
                 foreach (var alternative in result.Alternatives)
                 {
-                    Process.Start("chrome",alternative.Transcript);
+                    string str = alternative.Transcript;
+                    if (str.StartsWith("answer"))
+                    {
+                        string wolframUrl = "http://api.wolframalpha.com/v2/query?input=" + str + "&appid=" + wolframKey;
+
+                        /*
+                        WolframAlpha wolfram = new WolframAlpha(wolframKey);
+
+                        //Then you simply query Wolfram|Alpha like this
+                        //Note that the spelling error will be correct by Wolfram|Alpha
+                        QueryResult results = wolfram.Query("Who is Danald Duck?");
+
+                        //The QueryResult object contains the parsed XML from Wolfram|Alpha. Lets look at it.
+                        //The results from wolfram is split into "pods". We just print them.
+                        if (results != null)
+                        {
+                            foreach (Pod pod in results.Pods)
+                            {
+                                Console.WriteLine(pod.Title);
+                                if (pod.SubPods != null)
+                                {
+                                    foreach (SubPod subPod in pod.SubPods)
+                                    {
+                                        Console.WriteLine(subPod.Title);
+                                        MessageBox.Show(subPod.Title,subPod.Plaintext);
+                                    }
+                                }
+                            }
+                        }
+                        */
+                    
+                    }
+                    Process.Start("chrome", alternative.Transcript);
+                    
                 }
             }
+
+
         }
     }
 }

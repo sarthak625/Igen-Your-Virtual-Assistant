@@ -51,22 +51,26 @@
             // TimeBlock
             // 
             this.TimeBlock.Location = new System.Drawing.Point(936, 69);
-            this.TimeBlock.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.TimeBlock.Margin = new System.Windows.Forms.Padding(6);
             this.TimeBlock.Name = "TimeBlock";
             this.TimeBlock.Size = new System.Drawing.Size(251, 89);
             this.TimeBlock.TabIndex = 0;
             this.TimeBlock.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.TimeBlock.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
+            this.TimeBlock.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
+            this.TimeBlock.Click += new System.EventHandler(this.TimeBlock_Click);
             // 
             // DateBlock
             // 
             this.DateBlock.BackColor = System.Drawing.Color.LightCoral;
             this.DateBlock.CustomBackground = true;
             this.DateBlock.Location = new System.Drawing.Point(936, 207);
-            this.DateBlock.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.DateBlock.Margin = new System.Windows.Forms.Padding(6);
             this.DateBlock.Name = "DateBlock";
             this.DateBlock.Size = new System.Drawing.Size(251, 89);
             this.DateBlock.TabIndex = 2;
             this.DateBlock.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.DateBlock.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
             // 
             // CLabel
             // 
