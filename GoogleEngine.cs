@@ -121,8 +121,8 @@ namespace IgenFinalVersion
 
         private void SearchButton_Click(object sender, EventArgs e)
         {
-            string wolframKey = "T3XK9U-473W6GT8Y7";
-            string credential_path = @"I:/IgenVoiceRecognition-4b16cb56bff4.json";
+            string wolframKey = "Wolframkeywhichicantuploadongithub";
+            string credential_path = @"I:/IgenVoiceRecognition-file.json";
             System.Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", credential_path);
             var speech = SpeechClient.Create();
             var response = speech.Recognize(new RecognitionConfig() {
