@@ -60,7 +60,7 @@
             this.RecordButton.IdleFillColor = System.Drawing.Color.White;
             this.RecordButton.IdleForecolor = System.Drawing.Color.SeaGreen;
             this.RecordButton.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.RecordButton.Location = new System.Drawing.Point(76, 119);
+            this.RecordButton.Location = new System.Drawing.Point(76, 160);
             this.RecordButton.Margin = new System.Windows.Forms.Padding(5);
             this.RecordButton.Name = "RecordButton";
             this.RecordButton.Size = new System.Drawing.Size(203, 56);
@@ -71,7 +71,7 @@
             // TimerLabel
             // 
             this.TimerLabel.AutoSize = true;
-            this.TimerLabel.Location = new System.Drawing.Point(198, 202);
+            this.TimerLabel.Location = new System.Drawing.Point(198, 253);
             this.TimerLabel.Name = "TimerLabel";
             this.TimerLabel.Size = new System.Drawing.Size(258, 19);
             this.TimerLabel.TabIndex = 1;
@@ -79,7 +79,7 @@
             // 
             // HourBox
             // 
-            this.HourBox.Location = new System.Drawing.Point(198, 240);
+            this.HourBox.Location = new System.Drawing.Point(198, 301);
             this.HourBox.Name = "HourBox";
             this.HourBox.Size = new System.Drawing.Size(34, 23);
             this.HourBox.TabIndex = 2;
@@ -87,7 +87,7 @@
             // 
             // MinBox
             // 
-            this.MinBox.Location = new System.Drawing.Point(305, 240);
+            this.MinBox.Location = new System.Drawing.Point(302, 301);
             this.MinBox.Name = "MinBox";
             this.MinBox.Size = new System.Drawing.Size(34, 23);
             this.MinBox.TabIndex = 3;
@@ -95,7 +95,7 @@
             // 
             // SecsBox
             // 
-            this.SecsBox.Location = new System.Drawing.Point(412, 240);
+            this.SecsBox.Location = new System.Drawing.Point(409, 301);
             this.SecsBox.Name = "SecsBox";
             this.SecsBox.Size = new System.Drawing.Size(34, 23);
             this.SecsBox.TabIndex = 4;
@@ -104,7 +104,7 @@
             // CountDownLabel
             // 
             this.CountDownLabel.AutoSize = true;
-            this.CountDownLabel.Location = new System.Drawing.Point(174, 86);
+            this.CountDownLabel.Location = new System.Drawing.Point(176, 119);
             this.CountDownLabel.Name = "CountDownLabel";
             this.CountDownLabel.Size = new System.Drawing.Size(16, 19);
             this.CountDownLabel.TabIndex = 5;
@@ -113,7 +113,7 @@
             // metroLabel1
             // 
             this.metroLabel1.AutoSize = true;
-            this.metroLabel1.Location = new System.Drawing.Point(238, 244);
+            this.metroLabel1.Location = new System.Drawing.Point(238, 301);
             this.metroLabel1.Name = "metroLabel1";
             this.metroLabel1.Size = new System.Drawing.Size(41, 19);
             this.metroLabel1.TabIndex = 6;
@@ -122,7 +122,7 @@
             // metroLabel2
             // 
             this.metroLabel2.AutoSize = true;
-            this.metroLabel2.Location = new System.Drawing.Point(345, 244);
+            this.metroLabel2.Location = new System.Drawing.Point(352, 301);
             this.metroLabel2.Name = "metroLabel2";
             this.metroLabel2.Size = new System.Drawing.Size(36, 19);
             this.metroLabel2.TabIndex = 7;
@@ -131,7 +131,7 @@
             // metroLabel3
             // 
             this.metroLabel3.AutoSize = true;
-            this.metroLabel3.Location = new System.Drawing.Point(452, 244);
+            this.metroLabel3.Location = new System.Drawing.Point(449, 301);
             this.metroLabel3.Name = "metroLabel3";
             this.metroLabel3.Size = new System.Drawing.Size(32, 19);
             this.metroLabel3.TabIndex = 8;
@@ -155,7 +155,7 @@
             this.RemindButton.IdleFillColor = System.Drawing.Color.White;
             this.RemindButton.IdleForecolor = System.Drawing.Color.SeaGreen;
             this.RemindButton.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.RemindButton.Location = new System.Drawing.Point(427, 119);
+            this.RemindButton.Location = new System.Drawing.Point(438, 160);
             this.RemindButton.Margin = new System.Windows.Forms.Padding(5);
             this.RemindButton.Name = "RemindButton";
             this.RemindButton.Size = new System.Drawing.Size(203, 56);
@@ -166,9 +166,9 @@
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(412, 49);
+            this.listBox1.Location = new System.Drawing.Point(409, 57);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(265, 56);
+            this.listBox1.Size = new System.Drawing.Size(270, 95);
             this.listBox1.TabIndex = 10;
             // 
             // ReminderFeature

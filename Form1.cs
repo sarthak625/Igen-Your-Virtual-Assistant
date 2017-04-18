@@ -120,7 +120,7 @@ namespace IgenFinalVersion
 
         private void startRecognition()
         {
-            options = new String[] { "good morning", "good evening", "good night", "good afternoon","activate google engine","hi","hello","introduce yourself","igen lock the screen", "igen shut down the computer","activate reminder feature", "igen make the computer sleep" };
+            options = new String[] { "open command prompt", "good morning", "good evening", "good night", "good afternoon","activate google engine","hi","hello","introduce yourself","igen lock the screen", "igen shut down the computer","activate reminder feature", "igen make the computer sleep" ,"open chrome","open notepad"};
             cList.Add(options);
             Grammar gr = new Grammar(new GrammarBuilder(cList));
 
@@ -148,6 +148,21 @@ namespace IgenFinalVersion
         {
             switch (e.Result.Text.ToString())
             {
+                case "open command prompt":
+                    {
+                        Process.Start("cmd");
+                        break;
+                    }
+                case "open chrome":
+                    {
+                        Process.Start("chrome");
+                        break;
+                    }
+                case "open notepad":
+                    {
+                        Process.Start("notepad");
+                        break;
+                    }
                 case "activate google engine":
                     {
                         ss.SpeakAsync("Google Engine Online");
@@ -266,6 +281,22 @@ namespace IgenFinalVersion
 
             dateOnly += " "+dayOfWeek;
             DateBlock.Text = dateOnly;
+        }
+
+        private void GEButton_Click(object sender, EventArgs e)
+        {
+            ss.SpeakAsync("Google Engine Online");
+            GoogleEngine ge = new GoogleEngine();
+            ge.Activated += new EventHandler(GoogleFormActivated);
+            ge.ShowDialog();
+        }
+
+        private void RFButton_Click(object sender, EventArgs e)
+        {
+            ss.SpeakAsync("Reminder feature activated");
+            ReminderFeature rf = new ReminderFeature();
+            rf.Activated += new EventHandler(ReminderFeatureActivated);
+            rf.ShowDialog();
         }
 
         private void Igen_Load(object sender, EventArgs e)

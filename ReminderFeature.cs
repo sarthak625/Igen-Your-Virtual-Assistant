@@ -137,11 +137,37 @@ namespace IgenFinalVersion
             waveWriter.Flush();
         }
 
+        string toAdd = null;
         private void RemindButton_Click(object sender, EventArgs e)
         {
             ReminderToAdd rta = new ReminderToAdd();
             rta.ShowDialog();
-            string toAdd = rta.getTextForm2();
+            toAdd = rta.getTextForm2();
+            
+            int h = Convert.ToInt32(HourBox.Text);
+            int m = Convert.ToInt32(MinBox.Text);
+            int s = Convert.ToInt32(SecsBox.Text);
+            listBox1.Items.Add(toAdd + " ==> in ------->  " +h+" h "+m+" m "+s+ " s ");
+
+            int milliseconds = (h * 60 * 60 * 1000) + (m * 60 * 1000) + (s * 1000);
+            if (milliseconds == 0)
+            {
+                MessageBox.Show(toAdd);
+            }
+            else
+            {
+                playTimer = new System.Timers.Timer();
+                playTimer.Interval = milliseconds;
+                playTimer.Elapsed += new System.Timers.ElapsedEventHandler(remind);
+                playTimer.Enabled = true;
+            }
+            
+        }
+
+        private void remind(object sender,EventArgs e)
+        {
+            MessageBox.Show(toAdd);
+            playTimer.Enabled = false;
         }
     }
 

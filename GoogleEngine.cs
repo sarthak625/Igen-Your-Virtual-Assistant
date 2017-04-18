@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Windows.Forms;
 using NAudio.Wave;
+using Google.Cloud.Speech.V1;
+using Google.Apis.Auth.OAuth2;
+using System.Diagnostics;
 
 namespace IgenFinalVersion
 {
@@ -52,7 +55,7 @@ namespace IgenFinalVersion
             string fileName = "C:/Users/PrAnk/Desktop/test.flac";   //Path of the wav file to be recorded into
 
             sourceStream = new WaveIn();
-            sourceStream.WaveFormat = new WaveFormat(44100,1);
+            sourceStream.WaveFormat = new WaveFormat(16000,1);
             sourceStream.DataAvailable += new EventHandler<WaveInEventArgs>(sourceStream_DataAvailable);
             waveWriter = new WaveFileWriter(fileName,sourceStream.WaveFormat);
 
@@ -102,6 +105,9 @@ namespace IgenFinalVersion
         {
             sourceStream.StopRecording();
             sourceStream = null;
+            
+            waveWriter.Dispose();
+            waveWriter = null;
             MessageBox.Show("recorded");
         }
         private void sourceStream_DataAvailable(object sender,WaveInEventArgs e)
@@ -115,7 +121,22 @@ namespace IgenFinalVersion
 
         private void SearchButton_Click(object sender, EventArgs e)
         {
+            string credential_path = @"I:/IgenVoiceRecognition-4b16cb56bff4.json";
+            System.Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", credential_path);
+            var speech = SpeechClient.Create();
+            var response = speech.Recognize(new RecognitionConfig() {
+                Encoding = RecognitionConfig.Types.AudioEncoding.Linear16,
+                SampleRateHertz = 16000,
+                LanguageCode = "en",
+            },RecognitionAudio.FromFile("C:/Users/PrAnk/Desktop/test.flac"));
 
+            foreach (var result in response.Results)
+            {
+                foreach (var alternative in result.Alternatives)
+                {
+                    Process.Start("chrome",alternative.Transcript);
+                }
+            }
         }
     }
 }
