@@ -2,6 +2,7 @@
 A speech recognition application that can interact with the user, set voice and text reminders and make calls to Google and Wolfram APIs
 
 The features of this application are divided into three parts:
+
 1> Using System.Speech to recognize a set of grammar and respond accordingly. =>
    Here there are added features such as lock the screen,shut down, sleep, smart replies, basic interactions
    
