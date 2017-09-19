@@ -20,3 +20,7 @@ The features of this application are divided into three parts:
    ```
    Igen-Your-Virtual-Assistant/bin/Debug/IgenFinalVersion.exe
    ```
+## Contributors
+* Prateek Negi
+* Sachin Bhardwaj
+* Sarthak Negi
